@@ -19,4 +19,8 @@ public interface MahasiswaDao {
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     void insert(Mahasiswa mahasiswa);
+
+
+//    @Query("INSERT INTO mahasiswa_table VALUES(:mahasiswa_database)")
+//    void insert(String mahasiswa_database);
 }

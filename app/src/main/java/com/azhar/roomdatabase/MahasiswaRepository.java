@@ -28,4 +28,10 @@ public class MahasiswaRepository {
             mMahasiswaDao.insert(mahasiswa);
         });
     }
+
+    void delete(){
+        MahasiswaRoomDatabase.databaseWriteExecutor.execute(() -> {
+            mMahasiswaDao.deleteAll();
+        });
+    }
 }

@@ -43,13 +43,12 @@ abstract class MahasiswaRoomDatabase extends RoomDatabase {
             super.onCreate(db);
 
             databaseWriteExecutor.execute(() -> {
-                // Populate the database in the background.
-                // If you want to start with more words, just add them.
-                MahasiswaDao dao = INSTANCE.mahasiswaDao();
-                dao.deleteAll();
 
-                Mahasiswa mhs = new Mahasiswa("Rudi");
-                dao.insert(mhs);
+//                MahasiswaDao dao = INSTANCE.mahasiswaDao();
+//                dao.deleteAll();
+//
+//                Mahasiswa mhs = new Mahasiswa("Rudi");
+//                dao.insert(mhs);
 
             });
         }

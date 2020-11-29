@@ -27,4 +27,8 @@ public class MahasiswaViewModel extends AndroidViewModel {
     void insert(Mahasiswa mahasiswa){
         mahasiswaRepository.insert(mahasiswa);
     }
+
+    void delete(){
+        mahasiswaRepository.delete();
+    }
 }
