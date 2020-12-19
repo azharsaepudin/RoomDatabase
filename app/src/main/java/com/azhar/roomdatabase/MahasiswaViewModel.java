@@ -31,4 +31,12 @@ public class MahasiswaViewModel extends AndroidViewModel {
     void delete(){
         mahasiswaRepository.delete();
     }
+
+    void deleteMhs(Mahasiswa mahasiswa){
+        mahasiswaRepository.deleteMhs(mahasiswa);
+    }
+
+    void updateMhs(String mNama, String paramUpdateMhs){
+        mahasiswaRepository.updateMhs(mNama, paramUpdateMhs);
+    }
 }

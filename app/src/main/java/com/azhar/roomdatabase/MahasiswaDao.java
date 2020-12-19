@@ -2,9 +2,11 @@ package com.azhar.roomdatabase;
 
 import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
+import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
+import androidx.room.Update;
 
 import java.util.List;
 
@@ -20,7 +22,10 @@ public interface MahasiswaDao {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     void insert(Mahasiswa mahasiswa);
 
+    @Delete
+    void deleteMhs(Mahasiswa mahasiswa);
 
-//    @Query("INSERT INTO mahasiswa_table VALUES(:mahasiswa_database)")
-//    void insert(String mahasiswa_database);
+    @Query("UPDATE mahasiswa_table SET nama = :mNama WHERE nama = :paramUpdateMhs")
+    void updateMhs(String mNama, String paramUpdateMhs);
+
 }

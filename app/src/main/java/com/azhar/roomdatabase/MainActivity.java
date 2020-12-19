@@ -22,8 +22,8 @@ public class MainActivity extends AppCompatActivity {
 
     private MahasiswaViewModel mahasiswaViewModel;
 
-    EditText edtNama;
-    Button btnInput;
+    EditText edtNama, edtNamaEdit;
+    Button btnInput, btnUpdate, btnDelete;
 
     FloatingActionButton fab;
 
@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
 
         mahasiswaViewModel = new ViewModelProvider(this).get(MahasiswaViewModel.class);
 
-        mahasiswaViewModel.delete();
+        //mahasiswaViewModel.delete();
 
         mahasiswaViewModel.getmAllMahasiswa().observe(this, new Observer<List<Mahasiswa>>() {
             @Override
@@ -92,6 +92,23 @@ public class MainActivity extends AppCompatActivity {
         Mahasiswa mhs = new Mahasiswa(mNama);
 
         mahasiswaViewModel.insert(mhs);
+
+    }
+
+    public void showEdit(String mNama){
+
+        final AlertDialog dialog =  new AlertDialog.Builder(this).create();
+        LayoutInflater inflater = this.getLayoutInflater();
+        final View dialogView = inflater.inflate(R.layout.custom_dialog_edit, null);
+
+        edtNamaEdit = dialogView.findViewById(R.id.edtNamaEdit);
+        btnUpdate = dialogView.findViewById(R.id.btnUpdate);
+        btnDelete = dialogView.findViewById(R.id.btnDelete);
+
+        edtNamaEdit.setText(mNama);
+
+        dialog.setView(dialogView);
+        dialog.show();
 
     }
 }

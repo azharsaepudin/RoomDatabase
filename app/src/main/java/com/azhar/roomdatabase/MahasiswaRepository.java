@@ -34,4 +34,16 @@ public class MahasiswaRepository {
             mMahasiswaDao.deleteAll();
         });
     }
+
+    void deleteMhs(Mahasiswa mahasiswa){
+        MahasiswaRoomDatabase.databaseWriteExecutor.execute(() -> {
+            mMahasiswaDao.deleteMhs(mahasiswa);
+        });
+    }
+
+    void updateMhs(String mNama, String paramUpdateMhs){
+        MahasiswaRoomDatabase.databaseWriteExecutor.execute(() -> {
+            mMahasiswaDao.updateMhs(mNama, paramUpdateMhs);
+        });
+    }
 }
